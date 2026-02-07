@@ -1,13 +1,15 @@
-# Build aşaması
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
+# SecureCardSystem klasörüne gir
+WORKDIR /src/SecureCardSystem
+
 # Proje dosyasını kopyala ve restore et
-COPY ["SecureCardSystem.csproj", "./"]
+COPY ["SecureCardSystem/SecureCardSystem.csproj", "./"]
 RUN dotnet restore "SecureCardSystem.csproj"
 
 # Tüm dosyaları kopyala ve build et
-COPY . .
+COPY SecureCardSystem/ ./
 RUN dotnet publish "SecureCardSystem.csproj" -c Release -o /app/publish
 
 # Runtime aşaması
