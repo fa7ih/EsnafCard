@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Fatih\\OneDrive\\Masaüstü\\Yeni klasör\\SecureCardSystem\\SecureCardSystem.csproj": {}
+    "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\SecureCardSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Fatih\\OneDrive\\Masaüstü\\Yeni klasör\\SecureCardSystem\\SecureCardSystem.csproj": {
+    "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\SecureCardSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Fatih\\OneDrive\\Masaüstü\\Yeni klasör\\SecureCardSystem\\SecureCardSystem.csproj",
+        "projectUniqueName": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\SecureCardSystem.csproj",
         "projectName": "SecureCardSystem",
-        "projectPath": "C:\\Users\\Fatih\\OneDrive\\Masaüstü\\Yeni klasör\\SecureCardSystem\\SecureCardSystem.csproj",
+        "projectPath": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\SecureCardSystem.csproj",
         "packagesPath": "C:\\Users\\Fatih\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Fatih\\OneDrive\\Masaüstü\\Yeni klasör\\SecureCardSystem\\obj\\",
+        "outputPath": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -71,10 +71,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.0, )"
-            },
-            "Microsoft.Extensions.Hosting.WindowsServices": {
-              "target": "Package",
-              "version": "[8.0.1, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",

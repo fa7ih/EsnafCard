@@ -19,6 +19,7 @@ builder.Services.AddControllersWithViews();
 string connectionString;
 
 // Railway environment variables'ý kontrol et
+// Railway environment variables'ý kontrol et
 var mysqlHost = Environment.GetEnvironmentVariable("MYSQLHOST");
 var mysqlPort = Environment.GetEnvironmentVariable("MYSQLPORT");
 var mysqlDatabase = Environment.GetEnvironmentVariable("MYSQLDATABASE");
@@ -27,9 +28,9 @@ var mysqlPassword = Environment.GetEnvironmentVariable("MYSQLPASSWORD");
 
 if (!string.IsNullOrEmpty(mysqlHost))
 {
-    // Railway'de çalýþýyoruz - database adýný Securitycarddb olarak ayarla
-    connectionString = $"server={mysqlHost};port={mysqlPort};database=Securitycarddb;user={mysqlUser};password={mysqlPassword};Charset=utf8mb4;Convert Zero Datetime=True;SslMode=Required";
-    Console.WriteLine($"Using Railway MySQL: {mysqlHost}:{mysqlPort}/Securitycarddb");
+    // Railway'de çalýþýyoruz - database adýný railway olarak ayarla
+    connectionString = $"server={mysqlHost};port={mysqlPort};database=railway;user={mysqlUser};password={mysqlPassword};Charset=utf8mb4;Convert Zero Datetime=True;SslMode=None;AllowPublicKeyRetrieval=True";
+    Console.WriteLine($"Using Railway MySQL: {mysqlHost}:{mysqlPort}/railway");
 }
 else
 {
@@ -121,7 +122,7 @@ using (var scope = app.Services.CreateScope())
         logger.LogInformation("Starting database migration...");
 
         // Migrate database - Railway'de otomatik çalýþacak
-        context.Database.Migrate();
+        //context.Database.Migrate();
 
         logger.LogInformation("Database migration completed successfully");
 
