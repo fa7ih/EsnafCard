@@ -27,9 +27,9 @@ var mysqlPassword = Environment.GetEnvironmentVariable("MYSQLPASSWORD");
 
 if (!string.IsNullOrEmpty(mysqlHost))
 {
-    // Railway'de çalýþýyoruz
-    connectionString = $"server={mysqlHost};port={mysqlPort};database={mysqlDatabase};user={mysqlUser};password={mysqlPassword};Charset=utf8mb4;Convert Zero Datetime=True;SslMode=Required";
-    Console.WriteLine($"Using Railway MySQL: {mysqlHost}:{mysqlPort}/{mysqlDatabase}");
+    // Railway'de çalýþýyoruz - database adýný Securitycarddb olarak ayarla
+    connectionString = $"server={mysqlHost};port={mysqlPort};database=Securitycarddb;user={mysqlUser};password={mysqlPassword};Charset=utf8mb4;Convert Zero Datetime=True;SslMode=Required";
+    Console.WriteLine($"Using Railway MySQL: {mysqlHost}:{mysqlPort}/Securitycarddb");
 }
 else
 {
@@ -68,11 +68,11 @@ builder.Services.ConfigureApplicationCookie(options =>
 // ============================================
 var emailConfig = new EmailConfiguration
 {
-    From = Environment.GetEnvironmentVariable("EMAIL_FROM") ?? builder.Configuration["EmailConfiguration:From"],
-    SmtpServer = Environment.GetEnvironmentVariable("EMAIL_SMTP") ?? builder.Configuration["EmailConfiguration:SmtpServer"],
+    From = Environment.GetEnvironmentVariable("EMAIL_FROM") ?? builder.Configuration["EmailConfiguration:From"] ?? "",
+    SmtpServer = Environment.GetEnvironmentVariable("EMAIL_SMTP") ?? builder.Configuration["EmailConfiguration:SmtpServer"] ?? "",
     Port = int.Parse(Environment.GetEnvironmentVariable("EMAIL_PORT") ?? builder.Configuration["EmailConfiguration:Port"] ?? "465"),
-    Username = Environment.GetEnvironmentVariable("EMAIL_USERNAME") ?? builder.Configuration["EmailConfiguration:Username"],
-    Password = Environment.GetEnvironmentVariable("EMAIL_PASSWORD") ?? builder.Configuration["EmailConfiguration:Password"]
+    Username = Environment.GetEnvironmentVariable("EMAIL_USERNAME") ?? builder.Configuration["EmailConfiguration:Username"] ?? "",
+    Password = Environment.GetEnvironmentVariable("EMAIL_PASSWORD") ?? builder.Configuration["EmailConfiguration:Password"] ?? ""
 };
 
 builder.Services.AddSingleton(emailConfig);
@@ -93,11 +93,15 @@ builder.Services.AddAuthorization(options =>
 
 //builder.Services.AddScoped<IAuthorizationHandler, IpRangeHandler>();
 
-// Railway'de Windows Service desteði yok, sadece local'de kullan
-if (OperatingSystem.IsWindows())
-{
-    builder.Host.UseWindowsService();
-}
+// ============================================
+// WINDOWS SERVICE SUPPORT (sadece Windows'ta)
+// ============================================
+// Railway Linux kullanýr, bu satýrý kaldýrdýk
+// Windows'ta çalýþtýrmak için bu kod bloðunu kullanabilirsiniz:
+// if (OperatingSystem.IsWindows())
+// {
+//     builder.Host.UseWindowsService();
+// }
 
 var app = builder.Build();
 
@@ -173,7 +177,7 @@ using (var scope = app.Services.CreateScope())
         Console.WriteLine($"Stack Trace: {ex.StackTrace}");
 
         // Railway'de database hatasý uygulamayý durdurmamalý
-        // throw; // Bu satýrý kaldýrdýk
+        // Uygulamanýn ayaða kalkmasýna izin ver
     }
 }
 
@@ -208,5 +212,6 @@ app.MapControllerRoute(
 // Port bilgisini logla
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 Console.WriteLine($"Application starting on port: {port}");
+Console.WriteLine($"Environment: {app.Environment.EnvironmentName}");
 
 app.Run();
