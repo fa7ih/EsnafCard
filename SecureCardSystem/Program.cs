@@ -121,8 +121,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-// Railway için HTTPS redirect'i kaldır
-// app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 
