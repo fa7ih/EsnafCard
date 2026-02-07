@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "HhcPxQzrnLPwTmPHlFDqtBcZxrCuaMuGrjQYSHuGCZ4=",
+  "Source": "SecureCardSystem",
+  "BasePath": "_content/SecureCardSystem",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

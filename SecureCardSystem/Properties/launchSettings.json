@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "SecureCardSystem": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:53634;http://localhost:53635"
+    }
+  }
+}

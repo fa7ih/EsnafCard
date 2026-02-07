@@ -1,0 +1,153 @@
+@model Card
+@{
+    ViewData["Title"] = "Bakiye Güncelle";
+}
+
+<h2 class="mb-4">
+    <i class="bi bi-pencil-square"></i> Bakiye Güncelle
+</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Kart Bilgileri</h5>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <tr>
+                        <th>Kart No:</th>
+                        <td><strong class="text-primary">@Model.CardNumber</strong></td>
+                    </tr>
+                    <tr>
+                        <th>Mevcut Bakiye:</th>
+                        <td>
+                            <strong class="text-success">@Model.Balance.ToString("C2")</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>İlk Bakiye:</th>
+                        <td>@Model.InitialBalance.ToString("C2")</td>
+                    </tr>
+                    <tr>
+                        <th>Durum:</th>
+                        <td>
+                            @if (Model.IsActive)
+                            {
+                                <span class="badge bg-success">Aktif</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">Pasif</span>
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Oluşturulma:</th>
+                        <td>@Model.CreatedAt.ToString("dd.MM.yyyy HH:mm")</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-warning">
+                <h5 class="mb-0">Yeni Bakiye Belirle</h5>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <input type="hidden" name="cardNumber" value="@Model.CardNumber" />
+                    
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="bi bi-cash-stack"></i> Yeni Bakiye (TL)
+                        </label>
+                        <input type="number" name="newBalance" class="form-control form-control-lg" 
+                               step="0.01" min="0" required value="@Model.Balance" 
+                               style="font-size: 1.5rem;">
+                    </div>
+
+                    <div class="alert alert-info">
+                        <i class="bi bi-info-circle"></i>
+                        <strong>Not:</strong> Bu işlem bakiyeyi tamamen yeni değere ayarlar. 
+                        İşlem loglanacaktır.
+                    </div>
+
+                    <button type="submit" class="btn btn-warning w-100 btn-lg">
+                        <i class="bi bi-check-circle"></i> Bakiyeyi Güncelle
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-header bg-info text-white">
+        <h5 class="mb-0">
+            <i class="bi bi-clock-history"></i> Son İşlemler
+        </h5>
+    </div>
+    <div class="card-body">
+        @if (Model.Transactions.Any())
+        {
+            <div class="table-responsive">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Tarih</th>
+                            <th>Tutar</th>
+                            <th>Önceki</th>
+                            <th>Sonraki</th>
+                            <th>Tip</th>
+                            <th>Yapan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var transaction in Model.Transactions.OrderByDescending(t => t.TransactionDate).Take(10))
+                        {
+                            <tr>
+                                <td>@transaction.TransactionDate.ToString("dd.MM.yyyy HH:mm")</td>
+                                <td>
+                                    @if (transaction.TransactionType == "Payment")
+                                    {
+                                        <span class="text-danger">-@transaction.Amount.ToString("C2")</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-success">+@transaction.Amount.ToString("C2")</span>
+                                    }
+                                </td>
+                                <td>@transaction.BalanceBefore.ToString("C2")</td>
+                                <td>@transaction.BalanceAfter.ToString("C2")</td>
+                                <td>
+                                    <small>@(transaction.TransactionType == "Payment" ? "Ödeme" : "Bakiye Güncelleme")</small>
+                                </td>
+                                <td>
+                                    <small>@transaction.ProcessedBy</small>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <a href="/User/CardTransactions?cardNumber=@Model.CardNumber" class="btn btn-sm btn-info">
+                Tüm İşlemleri Gör
+            </a>
+        }
+        else
+        {
+            <div class="alert alert-warning">
+                Bu kart için henüz işlem bulunmuyor.
+            </div>
+        }
+    </div>
+</div>
+
+<div class="mt-3">
+    <a href="/User/CardList" class="btn btn-secondary">
+        <i class="bi bi-arrow-left"></i> Kart Listesine Dön
+    </a>
+</div>
