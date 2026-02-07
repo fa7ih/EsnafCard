@@ -13,8 +13,32 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// ============================================
+// RAILWAY MySQL CONNECTION
+// ============================================
+string connectionString;
+
+// Railway environment variables'ý kontrol et
+var mysqlHost = Environment.GetEnvironmentVariable("MYSQLHOST");
+var mysqlPort = Environment.GetEnvironmentVariable("MYSQLPORT");
+var mysqlDatabase = Environment.GetEnvironmentVariable("MYSQLDATABASE");
+var mysqlUser = Environment.GetEnvironmentVariable("MYSQLUSER");
+var mysqlPassword = Environment.GetEnvironmentVariable("MYSQLPASSWORD");
+
+if (!string.IsNullOrEmpty(mysqlHost))
+{
+    // Railway'de çalýþýyoruz
+    connectionString = $"server={mysqlHost};port={mysqlPort};database={mysqlDatabase};user={mysqlUser};password={mysqlPassword};Charset=utf8mb4;Convert Zero Datetime=True;SslMode=Required";
+    Console.WriteLine($"Using Railway MySQL: {mysqlHost}:{mysqlPort}/{mysqlDatabase}");
+}
+else
+{
+    // Local development
+    connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    Console.WriteLine("Using local MySQL connection");
+}
+
 // Database context
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
@@ -39,16 +63,25 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.SlidingExpiration = true;
 });
 
-// Register services
-var emailConfig = builder.Configuration
-    .GetSection("EmailConfiguration")
-    .Get<EmailConfiguration>();
+// ============================================
+// EMAIL CONFIGURATION (Railway ile uyumlu)
+// ============================================
+var emailConfig = new EmailConfiguration
+{
+    From = Environment.GetEnvironmentVariable("EMAIL_FROM") ?? builder.Configuration["EmailConfiguration:From"],
+    SmtpServer = Environment.GetEnvironmentVariable("EMAIL_SMTP") ?? builder.Configuration["EmailConfiguration:SmtpServer"],
+    Port = int.Parse(Environment.GetEnvironmentVariable("EMAIL_PORT") ?? builder.Configuration["EmailConfiguration:Port"] ?? "465"),
+    Username = Environment.GetEnvironmentVariable("EMAIL_USERNAME") ?? builder.Configuration["EmailConfiguration:Username"],
+    Password = Environment.GetEnvironmentVariable("EMAIL_PASSWORD") ?? builder.Configuration["EmailConfiguration:Password"]
+};
+
 builder.Services.AddSingleton(emailConfig);
 builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.AddScoped<CardService>();
 builder.Services.AddScoped<OcrService>();
 builder.Services.AddScoped<ExportService>();
 builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("IpRestricted", policy =>
@@ -59,11 +92,18 @@ builder.Services.AddAuthorization(options =>
 });
 
 //builder.Services.AddScoped<IAuthorizationHandler, IpRangeHandler>();
-IHostBuilder hostBuilder = builder.Host.UseWindowsService();
+
+// Railway'de Windows Service desteði yok, sadece local'de kullan
+if (OperatingSystem.IsWindows())
+{
+    builder.Host.UseWindowsService();
+}
 
 var app = builder.Build();
 
-// Seed database with default admin
+// ============================================
+// DATABASE MIGRATION & SEEDING
+// ============================================
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -72,18 +112,25 @@ using (var scope = app.Services.CreateScope())
         var context = services.GetRequiredService<ApplicationDbContext>();
         var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
         var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+        var logger = services.GetRequiredService<ILogger<Program>>();
 
-        // Migrate database
+        logger.LogInformation("Starting database migration...");
+
+        // Migrate database - Railway'de otomatik çalýþacak
         context.Database.Migrate();
+
+        logger.LogInformation("Database migration completed successfully");
 
         // Create roles
         if (!await roleManager.RoleExistsAsync("Admin"))
         {
             await roleManager.CreateAsync(new IdentityRole("Admin"));
+            logger.LogInformation("Admin role created");
         }
         if (!await roleManager.RoleExistsAsync("User"))
         {
             await roleManager.CreateAsync(new IdentityRole("User"));
+            logger.LogInformation("User role created");
         }
 
         // Create default admin
@@ -104,13 +151,29 @@ using (var scope = app.Services.CreateScope())
             if (result.Succeeded)
             {
                 await userManager.AddToRoleAsync(adminUser, "Admin");
+                logger.LogInformation($"Default admin user created: {adminEmail}");
             }
+            else
+            {
+                logger.LogError($"Failed to create admin user: {string.Join(", ", result.Errors.Select(e => e.Description))}");
+            }
+        }
+        else
+        {
+            logger.LogInformation($"Admin user already exists: {adminEmail}");
         }
     }
     catch (Exception ex)
     {
         var logger = services.GetRequiredService<ILogger<Program>>();
         logger.LogError(ex, "An error occurred while seeding the database.");
+
+        // Railway'de hata detaylarýný görmek için
+        Console.WriteLine($"Database Error: {ex.Message}");
+        Console.WriteLine($"Stack Trace: {ex.StackTrace}");
+
+        // Railway'de database hatasý uygulamayý durdurmamalý
+        // throw; // Bu satýrý kaldýrdýk
     }
 }
 
@@ -118,10 +181,16 @@ using (var scope = app.Services.CreateScope())
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
+    // Railway HTTPS'i proxy seviyesinde hallediyor
+    // app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+// Railway'de HTTPS redirect gerekmiyor (Railway proxy'si hallediyor)
+if (app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
+
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -135,5 +204,9 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+// Port bilgisini logla
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+Console.WriteLine($"Application starting on port: {port}");
 
 app.Run();
