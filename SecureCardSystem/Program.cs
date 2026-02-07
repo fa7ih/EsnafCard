@@ -40,8 +40,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // --------------------
 // DATA PROTECTION (Login sorunu yaşamamak için)
 // --------------------
-builder.Services.AddDataProtection()
-    .PersistKeysToDbContext<ApplicationDbContext>();
+//builder.Services.AddDataProtection()
+  //  .PersistKeysToDbContext<ApplicationDbContext>();
 
 // --------------------
 // IDENTITY CONFIG
