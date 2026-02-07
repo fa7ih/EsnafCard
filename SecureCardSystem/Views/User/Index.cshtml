@@ -1,0 +1,105 @@
+@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<h2 class="mb-4">
+    <i class="bi bi-house-door"></i> Hoş Geldiniz
+</h2>
+
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="stat-card">
+            <h3>@ViewBag.TotalCards</h3>
+            <p class="mb-0"><i class="bi bi-credit-card"></i> Toplam Kartım</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card">
+            <h3>@ViewBag.ActiveCards</h3>
+            <p class="mb-0"><i class="bi bi-check-circle"></i> Aktif Kart</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card">
+            <h3>@ViewBag.TotalBalance.ToString("C2")</h3>
+            <p class="mb-0"><i class="bi bi-cash-stack"></i> Toplam Bakiye</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card">
+            <h3>@ViewBag.TodayTransactions</h3>
+            <p class="mb-0"><i class="bi bi-calendar-day"></i> Bugünkü İşlem</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 mb-3">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="bi bi-credit-card-2-front" style="font-size: 3rem; color: #667eea;"></i>
+                <h5 class="mt-3">Kart Oluştur</h5>
+                <p class="text-muted">Yeni kart oluşturun ve bakiye tanımlayın</p>
+                <a href="/User/CreateCard" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i> Kart Oluştur
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="bi bi-cash-coin" style="font-size: 3rem; color: #28a745;"></i>
+                <h5 class="mt-3">Ödeme Al</h5>
+                <p class="text-muted">Kart numarası ile ödeme işlemi yapın</p>
+                <a href="/User/Payment" class="btn btn-success">
+                    <i class="bi bi-credit-card"></i> Ödeme Al
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="bi bi-journal-text" style="font-size: 3rem; color: #ffc107;"></i>
+                <h5 class="mt-3">İşlem Geçmişi</h5>
+                <p class="text-muted">Tüm işlemleri görüntüleyin ve dışa aktarın</p>
+                <a href="/User/Transactions" class="btn btn-warning">
+                    <i class="bi bi-list-ul"></i> İşlemleri Gör
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-header bg-info text-white">
+        <h5 class="mb-0">
+            <i class="bi bi-info-circle"></i> Hızlı İşlemler
+        </h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <h6>Kart Yönetimi</h6>
+                <ul>
+                    <li><a href="/User/CardList">Tüm kartlarımı görüntüle</a></li>
+                    <li><a href="/User/CreateCard">Yeni kart oluştur</a></li>
+                    <li><a href="/User/ExportCardsToExcel">Kartları Excel'e aktar</a></li>
+                    <li><a href="/User/ExportCardNumbersOnlyToExcel">Sadece kart numaralarını aktar</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h6>İşlem Yönetimi</h6>
+                <ul>
+                    <li><a href="/User/Transactions">Tüm işlemlerimi görüntüle</a></li>
+                    <li><a href="/User/Payment">Ödeme işlemi yap</a></li>
+                    <li><a href="/User/ExportTransactionsToExcel">İşlemleri Excel'e aktar</a></li>
+                    <li><a href="/Account/Profile">Profil bilgilerimi düzenle</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
