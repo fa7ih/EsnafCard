@@ -13,10 +13,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Database context - Environment variable'dan al
-var connectionString = Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection") 
-    ?? builder.Configuration.GetConnectionString("DefaultConnection");
-
+// Database context
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
@@ -59,6 +57,8 @@ builder.Services.AddAuthorization(options =>
         policy.AddRequirements(new IpRangeRequirement());
     });
 });
+
+//builder.Services.AddScoped<IAuthorizationHandler, IpRangeHandler>();
 
 var app = builder.Build();
 
@@ -110,7 +110,6 @@ using (var scope = app.Services.CreateScope())
     {
         var logger = services.GetRequiredService<ILogger<Program>>();
         logger.LogError(ex, "An error occurred while seeding the database.");
-        throw; // Railway'de hatayı görmek için
     }
 }
 
@@ -122,10 +121,12 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseStaticFiles();
 
 app.UseRouting();
+
+// IP Restriction Middleware
+//app.UseMiddleware<IpRestrictionMiddleware>();
 
 app.UseAuthentication();
 app.UseAuthorization();
