@@ -1,41 +1,61 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Fatih\\OneDrive\\Masa\u00FCst\u00FC\\Yeni klas\u00F6r\\SecureCardSystem\\",
+  "WorkspaceRootPath": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|c:\\users\\fatih\\onedrive\\masa\u00FCst\u00FC\\yeni klas\u00F6r\\securecardsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|c:\\users\\fatih\\onedrive\\belgeler\\github\\esnafcard\\securecardsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|c:\\users\\fatih\\onedrive\\masa\u00FCst\u00FC\\yeni klas\u00F6r\\securecardsystem\\securecardsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|solutionrelative:securecardsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|c:\\users\\fatih\\onedrive\\belgeler\\github\\esnafcard\\securecardsystem\\data\\applicationdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|solutionrelative:data\\applicationdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|c:\\users\\fatih\\onedrive\\masa\u00FCst\u00FC\\yeni klas\u00F6r\\securecardsystem\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Migrations\\20260207142643_migre1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20260207142643_migre1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|c:\\users\\fatih\\onedrive\\masa\u00FCst\u00FC\\yeni klas\u00F6r\\securecardsystem\\views\\user\\cardlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|solutionrelative:views\\user\\cardlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Migrations\\20260207142547_migre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20260207142547_migre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|c:\\users\\fatih\\onedrive\\masa\u00FCst\u00FC\\yeni klas\u00F6r\\securecardsystem\\views\\user\\transactions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|c:\\users\\fatih\\onedrive\\belgeler\\github\\esnafcard\\securecardsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|c:\\users\\fatih\\onedrive\\belgeler\\github\\esnafcard\\securecardsystem\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|c:\\users\\fatih\\onedrive\\belgeler\\github\\esnafcard\\securecardsystem\\views\\user\\transactions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|solutionrelative:views\\user\\transactions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|c:\\users\\fatih\\onedrive\\masa\u00FCst\u00FC\\yeni klas\u00F6r\\securecardsystem\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|c:\\users\\fatih\\onedrive\\belgeler\\github\\esnafcard\\securecardsystem\\securecardsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|solutionrelative:securecardsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|c:\\users\\fatih\\onedrive\\belgeler\\github\\esnafcard\\securecardsystem\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|c:\\users\\fatih\\onedrive\\belgeler\\github\\esnafcard\\securecardsystem\\views\\user\\cardlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|solutionrelative:views\\user\\cardlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|c:\\users\\fatih\\onedrive\\belgeler\\github\\esnafcard\\securecardsystem\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|solutionrelative:models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|c:\\users\\fatih\\onedrive\\masa\u00FCst\u00FC\\yeni klas\u00F6r\\securecardsystem\\services\\cardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|c:\\users\\fatih\\onedrive\\belgeler\\github\\esnafcard\\securecardsystem\\services\\cardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|solutionrelative:services\\cardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|c:\\users\\fatih\\onedrive\\masa\u00FCst\u00FC\\yeni klas\u00F6r\\securecardsystem\\models\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|c:\\users\\fatih\\onedrive\\belgeler\\github\\esnafcard\\securecardsystem\\models\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|solutionrelative:models\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|c:\\users\\fatih\\onedrive\\masa\u00FCst\u00FC\\yeni klas\u00F6r\\securecardsystem\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|c:\\users\\fatih\\onedrive\\belgeler\\github\\esnafcard\\securecardsystem\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DE08D6DF-F236-418E-AF6B-AA5543C1264E}|SecureCardSystem.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -46,7 +66,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,24 +90,89 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "20260207142643_migre1.cs",
+              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Migrations\\20260207142643_migre1.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260207142643_migre1.cs",
+              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Migrations\\20260207142643_migre1.cs",
+              "RelativeToolTip": "Migrations\\20260207142643_migre1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-07T14:26:43.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "20260207142547_migre.cs",
+              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Migrations\\20260207142547_migre.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260207142547_migre.cs",
+              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Migrations\\20260207142547_migre.cs",
+              "RelativeToolTip": "Migrations\\20260207142547_migre.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-07T14:25:47.525Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ApplicationDbContextFactory.cs",
+              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Data\\ApplicationDbContextFactory.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContextFactory.cs",
+              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Data\\ApplicationDbContextFactory.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContextFactory.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAQwB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-07T14:18:43.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-07T14:13:23.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAAwKAAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-07T14:12:28.298Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Masa\u00FCst\u00FC\\Yeni klas\u00F6r\\SecureCardSystem\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Masa\u00FCst\u00FC\\Yeni klas\u00F6r\\SecureCardSystem\\appsettings.json",
+              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-02-07T10:56:34.711Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Masa\u00FCst\u00FC\\Yeni klas\u00F6r\\SecureCardSystem\\Views\\Account\\Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Masa\u00FCst\u00FC\\Yeni klas\u00F6r\\SecureCardSystem\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Views\\Account\\Login.cshtml",
               "RelativeToolTip": "Views\\Account\\Login.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -96,11 +181,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "ApplicationUser.cs",
-              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Masa\u00FCst\u00FC\\Yeni klas\u00F6r\\SecureCardSystem\\Models\\ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Models\\ApplicationUser.cs",
               "RelativeDocumentMoniker": "Models\\ApplicationUser.cs",
-              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Masa\u00FCst\u00FC\\Yeni klas\u00F6r\\SecureCardSystem\\Models\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Models\\ApplicationUser.cs",
               "RelativeToolTip": "Models\\ApplicationUser.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -109,24 +194,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SecureCardSystem",
-              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Masa\u00FCst\u00FC\\Yeni klas\u00F6r\\SecureCardSystem\\SecureCardSystem.csproj",
+              "DocumentIndex": 7,
+              "Title": "SecureCardSystem.csproj",
+              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\SecureCardSystem.csproj",
               "RelativeDocumentMoniker": "SecureCardSystem.csproj",
-              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Masa\u00FCst\u00FC\\Yeni klas\u00F6r\\SecureCardSystem\\SecureCardSystem.csproj",
+              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\SecureCardSystem.csproj",
               "RelativeToolTip": "SecureCardSystem.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2026-02-07T09:41:55.308Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Transactions.cshtml",
-              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Masa\u00FCst\u00FC\\Yeni klas\u00F6r\\SecureCardSystem\\Views\\User\\Transactions.cshtml",
+              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Views\\User\\Transactions.cshtml",
               "RelativeDocumentMoniker": "Views\\User\\Transactions.cshtml",
-              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Masa\u00FCst\u00FC\\Yeni klas\u00F6r\\SecureCardSystem\\Views\\User\\Transactions.cshtml",
+              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Views\\User\\Transactions.cshtml",
               "RelativeToolTip": "Views\\User\\Transactions.cshtml",
               "ViewState": "AgIAAIEAAAAAAAAAAADwv54AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -135,23 +220,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "Transaction.cs",
-              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Masa\u00FCst\u00FC\\Yeni klas\u00F6r\\SecureCardSystem\\Models\\Transaction.cs",
+              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Models\\Transaction.cs",
               "RelativeDocumentMoniker": "Models\\Transaction.cs",
-              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Masa\u00FCst\u00FC\\Yeni klas\u00F6r\\SecureCardSystem\\Models\\Transaction.cs",
+              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Models\\Transaction.cs",
               "RelativeToolTip": "Models\\Transaction.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAADwvxcAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-06T20:04:58.114Z"
+              "WhenOpened": "2026-02-06T20:04:58.114Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "CardList.cshtml",
-              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Masa\u00FCst\u00FC\\Yeni klas\u00F6r\\SecureCardSystem\\Views\\User\\CardList.cshtml",
+              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Views\\User\\CardList.cshtml",
               "RelativeDocumentMoniker": "Views\\User\\CardList.cshtml",
-              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Masa\u00FCst\u00FC\\Yeni klas\u00F6r\\SecureCardSystem\\Views\\User\\CardList.cshtml",
+              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Views\\User\\CardList.cshtml",
               "RelativeToolTip": "Views\\User\\CardList.cshtml",
               "ViewState": "AgIAAIYAAAAAAAAAAADwv5cAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -160,23 +246,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Masa\u00FCst\u00FC\\Yeni klas\u00F6r\\SecureCardSystem\\Controllers\\UserController.cs",
+              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Masa\u00FCst\u00FC\\Yeni klas\u00F6r\\SecureCardSystem\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Controllers\\UserController.cs",
               "RelativeToolTip": "Controllers\\UserController.cs",
               "ViewState": "AgIAAOgAAAAAAAAAAADwv1wBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-06T19:55:06.954Z"
+              "WhenOpened": "2026-02-06T19:55:06.954Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "CardService.cs",
-              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Masa\u00FCst\u00FC\\Yeni klas\u00F6r\\SecureCardSystem\\Services\\CardService.cs",
+              "DocumentMoniker": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Services\\CardService.cs",
               "RelativeDocumentMoniker": "Services\\CardService.cs",
-              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Masa\u00FCst\u00FC\\Yeni klas\u00F6r\\SecureCardSystem\\Services\\CardService.cs",
+              "ToolTip": "C:\\Users\\Fatih\\OneDrive\\Belgeler\\GitHub\\EsnafCard\\SecureCardSystem\\Services\\CardService.cs",
               "RelativeToolTip": "Services\\CardService.cs",
               "ViewState": "AgIAAOgAAAAAAAAAAADwvwUBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

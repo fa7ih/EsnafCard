@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
@@ -12,19 +13,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 
-// ===============================
-// DATABASE CONFIG (Railway Safe)
-// ===============================
+// =====================================
+// DATABASE CONFIG (Local + Railway)
+// =====================================
 string? connectionString =
     builder.Configuration.GetConnectionString("DefaultConnection") ??
     builder.Configuration["ConnectionStrings__DefaultConnection"] ??
     builder.Configuration["MYSQL_URL"];
 
-if (string.IsNullOrEmpty(connectionString))
-{
-    Console.WriteLine("WARNING: Database connection string not found!");
-}
-else
+if (!string.IsNullOrEmpty(connectionString))
 {
     var csb = new MySqlConnectionStringBuilder(connectionString)
     {
@@ -38,12 +35,20 @@ else
             ServerVersion.AutoDetect(csb.ConnectionString)
         )
     );
+
+    // DataProtection keys DB'de tutulacak
+    builder.Services.AddDataProtection()
+        .PersistKeysToDbContext<ApplicationDbContext>();
+}
+else
+{
+    Console.WriteLine("WARNING: Database connection string not found.");
 }
 
 
-// ===============================
+// =====================================
 // IDENTITY
-// ===============================
+// =====================================
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     options.Password.RequireDigit = true;
@@ -56,9 +61,9 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 .AddDefaultTokenProviders();
 
 
-// ===============================
-// COOKIE
-// ===============================
+// =====================================
+// COOKIE CONFIG
+// =====================================
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/Account/Login";
@@ -68,17 +73,15 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 
 
-// ===============================
+// =====================================
 // EMAIL + SERVICES
-// ===============================
+// =====================================
 var emailConfig = builder.Configuration
     .GetSection("EmailConfiguration")
     .Get<EmailConfiguration>();
 
 if (emailConfig != null)
-{
     builder.Services.AddSingleton(emailConfig);
-}
 
 builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.AddScoped<CardService>();
@@ -87,9 +90,9 @@ builder.Services.AddScoped<ExportService>();
 builder.Services.AddHttpContextAccessor();
 
 
-// ===============================
+// =====================================
 // AUTHORIZATION
-// ===============================
+// =====================================
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("IpRestricted", policy =>
@@ -103,9 +106,9 @@ builder.Services.AddAuthorization(options =>
 var app = builder.Build();
 
 
-// ===============================
-// MIGRATION + SEED (Safe)
-// ===============================
+// =====================================
+// MIGRATION + SEED (SAFE)
+// =====================================
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -152,14 +155,16 @@ using (var scope = app.Services.CreateScope())
 }
 
 
-// ===============================
+// =====================================
 // PIPELINE
-// ===============================
+// =====================================
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
+
+app.UseForwardedHeaders(); // Railway için önemli
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
