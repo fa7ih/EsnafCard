@@ -9,43 +9,41 @@ using SecureCardSystem.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// --------------------
-// Controllers
-// --------------------
 builder.Services.AddControllersWithViews();
 
-// --------------------
-// DATABASE CONFIG
-// --------------------
-var rawConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 
-if (string.IsNullOrEmpty(rawConnection))
+// ===============================
+// DATABASE CONFIG (Railway Safe)
+// ===============================
+string? connectionString =
+    builder.Configuration.GetConnectionString("DefaultConnection") ??
+    builder.Configuration["ConnectionStrings__DefaultConnection"] ??
+    builder.Configuration["MYSQL_URL"];
+
+if (string.IsNullOrEmpty(connectionString))
 {
-    throw new Exception("Database connection string is missing.");
+    Console.WriteLine("WARNING: Database connection string not found!");
+}
+else
+{
+    var csb = new MySqlConnectionStringBuilder(connectionString)
+    {
+        SslMode = MySqlSslMode.Required,
+        AllowUserVariables = true
+    };
+
+    builder.Services.AddDbContext<ApplicationDbContext>(options =>
+        options.UseMySql(
+            csb.ConnectionString,
+            ServerVersion.AutoDetect(csb.ConnectionString)
+        )
+    );
 }
 
-// Railway mysql:// formatını parse ediyoruz
-var csb = new MySqlConnectionStringBuilder(rawConnection)
-{
-    SslMode = MySqlSslMode.Required
-};
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseMySql(
-        csb.ConnectionString,
-        ServerVersion.AutoDetect(csb.ConnectionString)
-    )
-);
-
-// --------------------
-// DATA PROTECTION (Login sorunu yaşamamak için)
-// --------------------
-//builder.Services.AddDataProtection()
-  //  .PersistKeysToDbContext<ApplicationDbContext>();
-
-// --------------------
-// IDENTITY CONFIG
-// --------------------
+// ===============================
+// IDENTITY
+// ===============================
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     options.Password.RequireDigit = true;
@@ -57,9 +55,10 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
 
-// --------------------
-// COOKIE CONFIG
-// --------------------
+
+// ===============================
+// COOKIE
+// ===============================
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/Account/Login";
@@ -68,9 +67,10 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.SlidingExpiration = true;
 });
 
-// --------------------
+
+// ===============================
 // EMAIL + SERVICES
-// --------------------
+// ===============================
 var emailConfig = builder.Configuration
     .GetSection("EmailConfiguration")
     .Get<EmailConfiguration>();
@@ -86,6 +86,10 @@ builder.Services.AddScoped<OcrService>();
 builder.Services.AddScoped<ExportService>();
 builder.Services.AddHttpContextAccessor();
 
+
+// ===============================
+// AUTHORIZATION
+// ===============================
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("IpRestricted", policy =>
@@ -95,11 +99,13 @@ builder.Services.AddAuthorization(options =>
     });
 });
 
+
 var app = builder.Build();
 
-// --------------------
-// MIGRATION + SEED
-// --------------------
+
+// ===============================
+// MIGRATION + SEED (Safe)
+// ===============================
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -110,17 +116,14 @@ using (var scope = app.Services.CreateScope())
         var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
         var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
 
-        // Migration
         context.Database.Migrate();
 
-        // Roles
         if (!await roleManager.RoleExistsAsync("Admin"))
             await roleManager.CreateAsync(new IdentityRole("Admin"));
 
         if (!await roleManager.RoleExistsAsync("User"))
             await roleManager.CreateAsync(new IdentityRole("User"));
 
-        // Default Admin
         var adminEmail = "admin@securecard.com";
         var adminUser = await userManager.FindByEmailAsync(adminEmail);
 
@@ -143,14 +146,15 @@ using (var scope = app.Services.CreateScope())
     }
     catch (Exception ex)
     {
-        var logger = services.GetRequiredService<ILogger<Program>>();
-        logger.LogError(ex, "Database migration/seed error.");
+        var logger = app.Services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "Migration/Seed error.");
     }
 }
 
-// --------------------
+
+// ===============================
 // PIPELINE
-// --------------------
+// ===============================
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
